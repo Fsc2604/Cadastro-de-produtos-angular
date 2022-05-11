@@ -9,7 +9,7 @@ import { ProductService } from './../product.service';
   styleUrls: ['./product-delete.component.css']
 })
 export class ProductDeleteComponent implements OnInit {
-  product!: Product;
+  product: Product;
 
   constructor(private productService: ProductService, private router: Router,private route: ActivatedRoute) { }
 
@@ -21,7 +21,7 @@ export class ProductDeleteComponent implements OnInit {
   }
 
   deleteProduct(): void{
-    this.productService.delete(this.product).subscribe(() =>{
+    this.productService.delete(this.product.id).subscribe(() =>{ 
       this.productService.showMessage("Produto deletado com sucesso")
       this.router.navigate(["/products"])
     });
